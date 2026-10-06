@@ -1,0 +1,25 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #302a28;
+  background-color: #faf8f5;
+
+  --color-primary: #8b5145;
+  --color-primary-hover: #744237;
+  --color-text: #302a28;
+  --color-text-muted: #6d625e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

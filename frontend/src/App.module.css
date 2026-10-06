@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.description {
+  margin: 12px 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.button {
+  min-height: 48px;
+  margin-top: 32px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.message {
+  margin-top: 24px;
+  line-height: 1.5;
+}
