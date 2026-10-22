@@ -9,3 +9,17 @@ export async function checkApiHealth() {
 
     return response.json();
 }
+
+export async function getProducts(accessToken) {
+    const response = await fetch(`${apiUrl}/products`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`A API respondeu com erro: ${response.status}`);
+    }
+
+    return response.json();
+}
