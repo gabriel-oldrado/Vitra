@@ -57,3 +57,20 @@ export function validateProduct(product) {
         errors
     };
 }
+
+export function normalizeProduct(product) {
+    // botar os bglh padronizadin
+    const normalizedProduct = { 
+        name: product.name.trim(),
+        brand: product.brand.trim(),
+        category: product.category.trim(),
+        size_label: product.size_label.trim(),
+        price_cents: product.price_cents,
+        minimum_stock: product.minimum_stock,
+        is_published: product.is_published !== undefined ? product.is_published : false,
+        description: typeof product.description === 'string' ? product.description.trim() || null : null,
+        image_path: typeof product.image_path === 'string' ? product.image_path.trim() || null : null
+    };
+
+    return normalizedProduct;
+}
