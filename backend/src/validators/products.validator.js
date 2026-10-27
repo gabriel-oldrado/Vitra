@@ -10,6 +10,8 @@ const isFilledText = (value) =>
 const isNonNegativeInteger = (value) => 
         Number.isInteger(value) && value >= 0;
 
+const OPTIONAL_TEXT_FIELDS = ['description', 'image_path'];
+
 export function validateProduct(product) {
     if (!isPlainObject(product)) {
         return {
@@ -31,6 +33,23 @@ export function validateProduct(product) {
         if (!isNonNegativeInteger(product[field])) {
             errors[field] = `o campo ${field} é obrigatório e deve ser um número inteiro não negativo.`;
         }
+    }
+
+    for (const field of OPTIONAL_TEXT_FIELDS) {
+        if (
+            product[field] !== undefined &&
+            product[field] !== null &&
+            typeof product[field] !== 'string'
+        ) {
+            errors[field] = `o campo ${field} deve ser um texto se fornecido.`;
+        }
+    }
+
+    if (
+        product.is_published !== undefined &&
+        typeof product.is_published !== 'boolean'
+    ) {
+        errors.is_published = "o campo is_published deve ser um booleano se fornecido.";
     }
 
     return {
